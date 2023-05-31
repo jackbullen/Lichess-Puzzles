@@ -1,4 +1,6 @@
 document.getElementById('authorizeButton').addEventListener('click', initiateAuthorization);
+document.getElementById('authorizeButton').addEventListener('click', handleAuthorizationCallback);
+let accessToken = "";
 
 // Following instructions from: https://lichess.org/api#tag/OAuth/operation/oauth
 
@@ -51,8 +53,8 @@ function generateRandomString(length) {
       grant_type: 'authorization_code',
       code: returnedCode,
       code_verifier: storedCodeVerifier,
-      redirect_uri: 'https://your-redirect-uri.com',
-      client_id: 'your-client-id'
+      redirect_uri: 'https://jackbullen.github.io/Lichess-Puzzles/',
+      client_id: 'ABC'
     };
   
     fetch(tokenEndpoint, {
@@ -65,6 +67,7 @@ function generateRandomString(length) {
       .then(response => response.json())
       .then(data => {
         // Handle the response data containing the access token
+        accessToken = data.access_token;
         console.log(data.access_token);
       })
       .catch(error => {

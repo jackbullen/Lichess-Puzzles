@@ -5,7 +5,7 @@ form.addEventListener("submit", function(event) {
 });
   
 function fetchPuzzleData() {
-  const accessToken = "";
+  console.log(accessToken);
   const puzzleCountInput = document.getElementById("puzzleCount");
   const puzzleCount = puzzleCountInput.value;
   const params = new URLSearchParams();
