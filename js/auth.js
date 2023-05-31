@@ -23,7 +23,7 @@ function generateRandomString(length) {
     sessionStorage.setItem('state', state);
   
     // Redirect user to authorization endpoint
-    const redirectUri = 'jackbullen.github.io/Lichess-Puzzles/';
+    const redirectUri = 'https://jackbullen.github.io/Lichess-Puzzles/';
     const authorizationUrl = `https://lichess.org/oauth?client_id=your-client-id&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&code_challenge_method=S256&code_challenge=${encodeURIComponent(codeVerifier)}&state=${encodeURIComponent(state)}`;
     window.location.href = authorizationUrl;
   }
